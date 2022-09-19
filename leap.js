@@ -10,8 +10,15 @@
  * @returns {boolean} whether the given year is true or false
  */
 function isLeap(year) {
-  // TODO: return true or false depending on the year, rather than null.
-  return null;
+  if ((year % 4) !== 0) {
+    return false;
+  } else if ((year % 100) !== 0) {
+    return true;
+  } else if ((year % 400) !== 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 /**
@@ -22,8 +29,13 @@ function isLeap(year) {
  * @returns {number} the number of leap years in the given array
  */
 function countLeaps(yearArray) {
-  // TODO
-  return -1;
+  let count = 0;
+  for (const year of yearArray) {
+    if (isLeap(year)) {
+      count++;
+    }
+  }
+  return count;
 }
 
 /**
@@ -34,7 +46,14 @@ function countLeaps(yearArray) {
  * @returns
  */
 function getNextLeap(year) {
-  return -1;
+  let nextLeap = year;
+  while (1) {
+    nextLeap += 1;
+    if (isLeap(nextLeap)) {
+      break;
+    }
+  }
+  return nextLeap;
 }
 
 //= ========================================================================= //
